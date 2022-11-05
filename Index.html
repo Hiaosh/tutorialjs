@@ -1,0 +1,87 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        Hello World!!<br></br>
+        <div id="label0">Contador1: </div><div id="contador0">0</div>
+        <div id="label1">Contador2: </div><div id="contador1">0</div>
+        <div id="label2">Contador3: </div><div id="contador2">0</div>
+        <div id="label3">Contador4: </div><div id="contador3">0</div>
+        <p>
+        <button id="menos">-</button>
+        <button id="mais">+</button>
+        <button id="desce">V</button>
+        <button id="sobe">ʌ</button>
+        </p>
+        <p>
+        <button id="zero">0</button>
+        <button id="reset">RESET</button>
+        </p>
+        <script>
+            const contadores = [
+                document.getElementById('contador0'),
+                document.getElementById('contador1'),
+                document.getElementById('contador2'),
+                document.getElementById('contador3'),
+            ];
+
+            const labels = [
+                document.getElementById('label0'),
+                document.getElementById('label1'),
+                document.getElementById('label2'),
+                document.getElementById('label3'),
+            ];
+
+            const menos = document.getElementById('menos');
+            const mais = document.getElementById('mais');
+            const desce = document.getElementById('desce');
+            const sobe = document.getElementById('sobe');
+            const zero = document.getElementById('zero');
+            const reset = document.getElementById('reset');
+            let selecionado = 0;
+            
+            function atualizarPagina(){
+                for(labelIndex in labels){
+                    const label = labels[labelIndex];
+                    label.style.backgroundColor = 'white';
+                }
+                labels[selecionado].style.backgroundColor = 'lightblue';
+            }
+
+            desce.onclick = () => {
+                if(selecionado < 3){
+                    selecionado++;
+                }
+                atualizarPagina();
+            }
+
+            sobe.onclick = () => {
+                if(selecionado > 0){
+                    selecionado--;
+                }
+                atualizarPagina();
+            }
+
+            menos.onclick = () => {
+                if(contadores[selecionado].innerHTML > 0){
+                    contadores[selecionado].innerHTML = parseInt(contadores[selecionado].innerHTML)-1;
+                }
+            }
+            mais.onclick = () => {
+                contadores[selecionado].innerHTML = parseInt(contadores[selecionado].innerHTML)+1;
+            }
+            zero.onclick = () => {
+                contadores[selecionado].innerHTML = 0;
+            }
+            reset.onclick = () => {
+                //for(contadorIndex in contador){
+                //    const contador = contadores[contadorIndex];
+                //    contador.innerHTML = contadores[selecionado].innerHTML = 0;
+                //}
+                contadores.forEach((contador)=>contador.innerHTML = 0);
+            }
+            atualizarPagina();
+        </script>
+    </body>
+</html>
