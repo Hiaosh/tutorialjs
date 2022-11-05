@@ -1,0 +1,2 @@
+1 - Criar um botão que aumente no contador selecionado um valor aleatorio de 0 a 10.
+1.2 -Caso consiga, criar uma text box para o usuario escolher entre dois numeros.
